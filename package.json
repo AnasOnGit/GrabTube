@@ -8,12 +8,27 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@gorhom/bottom-sheet": "4",
+    "@unimodules/core": "~7.2.0",
     "expo": "~43.0.0",
+    "expo-cli": "^4.13.0",
+    "expo-file-dl": "^2.0.0",
+    "expo-file-system": "~13.0.3",
+    "expo-media-library": "~13.0.3",
+    "expo-notifications": "~0.13.3",
+    "expo-permissions": "~13.0.3",
     "expo-status-bar": "~1.1.0",
+    "global": "^4.4.0",
+    "is-youtube-url": "^1.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-native": "0.64.2",
-    "react-native-web": "0.17.1"
+    "react-native": "0.64.3",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-reanimated": "2.2.0",
+    "react-native-web": "0.17.1",
+    "react-native-webview": "11.13.0",
+    "react-native-ytdl": "^4.8.3",
+    "unimodules-permissions-interface": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
