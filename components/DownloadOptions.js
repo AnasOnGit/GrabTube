@@ -31,7 +31,7 @@ const channelId = "DownloadInfo";
 
 const DownloadOptions = ({ url }) => {
   const [uri, setUri] = useState("");
-  const [filename, setFilename] = useState("filename.mp4");
+  const [filename, setFilename] = useState("filename");
   const [downloadProgress, setDownloadProgress] = useState("0%");
 
   async function setNotificationChannel() {
@@ -77,10 +77,16 @@ useEffect(()=>{
   cam()
   getMediaPermission();
   getNotificationPermission();
+  
 },[])
 
 const cam = async () => {
   const permission = await Permissions.getAsync(Permissions.CAMERA_ROLL);
+  // let albu = await MediaLibrary.getAlbumAsync("GrabTube")
+  // console.log(albu)
+  // // console.log(await MediaLibrary.getAssetInfoAsync(id))
+  // let bwfhj = await MediaLibrary.getAssetsAsync({album:"876214992"})
+  // console.log(bwfhj)
 }
   // ref
   const bottomSheetModalRef = useRef(null);
@@ -141,16 +147,17 @@ const cam = async () => {
           index={1}
           snapPoints={snapPoints}
           onChange={handleSheetChanges}
-        >
+        > 
           <View style={styles.contentContainer}>
             <Text style={{ marginLeft: 7, fontWeight: "500" }}>Video</Text>
             <View style={styles.downloadOptionContainer}>
               {videoFormat.map((format,index) => (
                 <TouchableOpacity style={styles.downloadOption} key={index}
                 onPress={async () => {
-                  await downloadToFolder(format.url, filename, "GrabTube", channelId, {
+                  await downloadToFolder(format.url, `${filename}.mp4`, "GrabTube", channelId, {
                 downloadProgressCallback: downloadProgressUpdater,
               });
+              handlePresentModalPress()
                 }}>
                   <Text style={styles.downloadOptionQuality}>
                     {format.qualityLabel} 
@@ -163,7 +170,12 @@ const cam = async () => {
             <Text style={{ marginLeft: 7, fontWeight: "500" }}>Audio</Text>
             <View style={styles.downloadOptionContainer}>
               {audioFormat.map((format,index) => (
-                <TouchableOpacity style={styles.downloadOption} key={index}>
+                <TouchableOpacity style={styles.downloadOption} key={index}  onPress={async () => {
+                  await downloadToFolder(format.url, `${filename}.mp3`, "GrabTube", channelId, {
+                downloadProgressCallback: downloadProgressUpdater,
+              });
+              handlePresentModalPress()
+                }}>
                   <Text style={styles.downloadOptionQuality}>MP3</Text>
                   <Text style={styles.downloadOptionSize}>-- Mb</Text>
                 </TouchableOpacity>

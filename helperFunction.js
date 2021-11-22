@@ -19,7 +19,7 @@ export const getDownloadOptionsCustomFormat = (info, format) => {
 export const downloadVideoAndAudio = async (url, format) => {
   let info = await getVideoInfo(url);
   let downloadOptions = getDownloadOptionsCustomFormat(info, format);
-  console.log(downloadOptions);
+  // console.log(downloadOptions);
   return downloadOptions;
 };
 

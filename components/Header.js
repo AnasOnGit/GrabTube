@@ -10,7 +10,7 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import { isValidUrl } from "is-youtube-url";
 
-export default function Header({ url, setUrl }) {
+export default function Header({ url, setUrl, navigation }) {
 
   const [search, setSearch] = useState(url);
   const [active, setActive] = useState(false);
@@ -89,6 +89,7 @@ export default function Header({ url, setUrl }) {
           // size={20}
           color="#ff0000"
           style={{ marginRight: 5, fontSize: 18 }}
+          onPress={()=>navigation.navigate("Downloads")}
         />
       </TouchableOpacity>
     </View>
